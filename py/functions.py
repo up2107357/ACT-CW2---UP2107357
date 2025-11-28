@@ -1,1 +1,5 @@
-
+pip install kaggle
+# KGAT_76a2ca24233e12644b76ab91d1754c6a
+# export KAGGLE_API_TOKEN=KGAT_76a2ca24233e12644b76ab91d1754c6a
+kaggle datasets download -d UP2107357/amazon_books_metadata_sample_20k.csv
+unzip amazon_books_metadata_sample_20k.csv
