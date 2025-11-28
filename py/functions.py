@@ -1,6 +1,6 @@
 print("cd first")
 #pip install kaggle
-#kaggle datasets download -d UP2107357/amazon_books_metadata_sample_20k
+#kaggle datasets download hadifariborzi/amazon-books-dataset-20k-books-727k-reviews
 #tar -xf amazon_books_metadata_sample_20k.zip
 import zipfile
 import pandas as pd
