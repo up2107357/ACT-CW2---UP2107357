@@ -1,4 +1,4 @@
-def getdata()
+def get_data():
     import pandas as pd
     import re # To clean up the strings before the publishing date
     #The metadata is much more valuable for me to analyse, but there are columns that are not useful in any way.
@@ -24,5 +24,5 @@ def getdata()
 
     # Step 4 — convert to numeric
     df_metadata['publisher_date'] = pd.to_numeric(df_metadata['publisher_date'], errors='coerce')
-    print(df_metadata.columns.tolist())
-    print(df_metadata.head())
+
+    return df_metadata
