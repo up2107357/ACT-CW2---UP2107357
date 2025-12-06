@@ -1,4 +1,4 @@
-kaggle/
+py/kaggle/
 *.csv
 *.zip
 *.parquet
