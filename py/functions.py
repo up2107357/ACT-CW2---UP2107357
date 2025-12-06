@@ -20,7 +20,7 @@ def get_data():
     df_metadata['maybe_date'] = df_metadata['maybe_date'].fillna(df_metadata['publisher_date'])
 
     # Step 3 — extract ANY 4-digit year from the string
-    df_metadata['publisher_date'] = df_metadata['maybe_date'].str.extract(r'(\d{4})')
+    df_metadata['publisher_date'] = df_metadata['maybe_date'].str.extract(r'((?:19|20)\d{2})', expand=False)
 
     # Step 4 — convert to numeric
     df_metadata['publisher_date'] = pd.to_numeric(df_metadata['publisher_date'], errors='coerce')
