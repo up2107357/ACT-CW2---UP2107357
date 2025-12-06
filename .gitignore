@@ -3,5 +3,3 @@ kaggle/
 *.zip
 *.parquet
 .ipynb_checkpoints/
-py/amazon-books-dataset-20k-books-727k-reviews.zip
-py/amazon_books_reviews_sample_20k.csv
