@@ -2,4 +2,5 @@ py/kaggle/
 *.csv
 *.zip
 *.parquet
+*.json
 .ipynb_checkpoints/
