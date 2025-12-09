@@ -26,3 +26,12 @@ def get_data():
     df_metadata['publisher_date'] = pd.to_numeric(df_metadata['publisher_date'], errors='coerce')
 
     return df_metadata
+
+def test_train_split():
+    import pandas as pd
+    import numpy as np
+    from sklearn.model_selection import train_test_split
+
+    df_metadata = get_data() # This retrives the cleaned data from above.
+    X = df_metadata['average_rating']
+    Y = df_metadata['price_numeric'].values*df_metadata['rating_number'].values 
