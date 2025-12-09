@@ -1,6 +1,11 @@
+# Ignoring the datasets
 py/kaggle/
 *.csv
 *.zip
 *.parquet
 *.json
+# Ignoring the Jupyter notebooks
 .ipynb_checkpoints/
+
+#Ignoring the python cache
+__pycache__/
