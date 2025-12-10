@@ -5,7 +5,7 @@ def get_data():
     df_1 = pd.read_csv("kaggle/amazon_books_metadata_sample_20k.csv")
 
     # Removing the columns that provide nothing to my project. Credit to ChatGPT which recommended the below line of code:
-    useless_cols = ['title','subtitle', 'author_about', 'features_text', 'dimensions', 'item_weight', 'bought_together', 'isbn_10', 'isbn_13', 'images', 'videos', 'store', 'parent_asin', 'description', 'price', 'main_category', 'category_level_1_main']
+    useless_cols = ['subtitle', 'author_about', 'features_text', 'dimensions', 'item_weight', 'bought_together', 'isbn_10', 'isbn_13', 'images', 'videos', 'store', 'parent_asin', 'description', 'price', 'main_category', 'category_level_1_main']
     df_metadata = df_1.drop(useless_cols, axis = 1)
     ''' 
     Due to publisher_date being set as Month Day, Year or 'Edition' (Month Day, Year . 
