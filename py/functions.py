@@ -31,7 +31,24 @@ def test_train_split():
     import pandas as pd
     import numpy as np
     from sklearn.model_selection import train_test_split
+    from sklearn.preprocessing import LabelEncoder
 
     df_metadata = get_data() # This retrives the cleaned data from above.
-    X = df_metadata['average_rating']
-    Y = df_metadata['price_numeric'].values*df_metadata['rating_number'].values 
+    le = LabelEncoder()
+    df_metadata['author_id'] = le.fit_transform(df_metadata['author_name'])
+
+    # Other contexts around each author:
+    df_metadata['author_book_count'] = df_metadata.groupby('author_name')['title'].transform('count')
+    df_metadata['debut'] = (df_metadata['author_book_count'] == 1).astype(int)
+
+    # Now to deal with whether a title is a success or not, be it critical or commercial:
+    earnings = np.log1p(df_metadata['rating_number'])
+    reviews = df_metadata['average_rating']
+    impact = 0.6 * earnings + 0.4 * reviews
+    df_metadata['is_supported'] = (impact > impact.quantile(0.7)).astype(int)
+
+    x = df_metadata['author_id'].values
+    y = df_metadata['is_supported'].values
+
+    # Performing the test-train split:
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 42)
