@@ -43,7 +43,7 @@ def test_train_split():
     df_metadata['debut'] = (df_metadata['author_book_count'] == 1).astype(int)
 
     # Accounting for the other numeric features within the dataset:
-    numeric_metrics = ['author_book_count', 'debut', 'rating number', 'average_rating']
+    numeric_metrics = ['author_book_count', 'debut', 'rating_number', 'average_rating']
     x_num = df_metadata[numeric_metrics].fillna(0).values
     scaler = StandardScaler()
     x_num = scaler.fit_transform(x_num)
